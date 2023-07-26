@@ -23,6 +23,7 @@ class UsersDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->addColumn('action', 'users.action')
+            ->orderColumn('name', false)
             ->setRowId('id');
     }
 
