@@ -60,7 +60,7 @@ class UsersController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, User $user)
     {
         $request->validate([
             'name' => 'required',
@@ -68,11 +68,7 @@ class UsersController extends Controller
             'password' => 'required',
         ]);
 
-        $user = User::find($id);
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = $request->password;
-        $user->save();
+        $user->fill($request->post())->save();
 
         return redirect()->route('users.index')->with('success', 'User has been updated successfully!');
     }
