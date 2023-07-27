@@ -5,15 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\Satker;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\DataTables\SatkersDataTable;
 
 class SatkerController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(SatkersDataTable $dataTable)
     {
-        //
+        return $dataTable->render('satker.index');
     }
 
     /**
@@ -21,7 +22,7 @@ class SatkerController extends Controller
      */
     public function create()
     {
-        //
+        return view('satker.create');
     }
 
     /**
@@ -29,7 +30,14 @@ class SatkerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+                        'code' => 'required',
+                        'name' => 'required',
+                    ]);
+
+        Satker::create($validated);
+
+        return redirect()->route('satker.index')->with('success', 'Satker has been created successfully!');
     }
 
     /**
@@ -45,7 +53,7 @@ class SatkerController extends Controller
      */
     public function edit(Satker $satker)
     {
-        //
+        return view('satker.edit', compact('satker'));
     }
 
     /**
@@ -53,7 +61,14 @@ class SatkerController extends Controller
      */
     public function update(Request $request, Satker $satker)
     {
-        //
+        $validated = $request->validate([
+            'code' => 'required',
+            'name' => 'required',
+        ]);
+        
+        $satker->fill($validated)->save();
+
+        return redirect()->route('satker.index')->with('success', 'Satker has been updated successfully!');
     }
 
     /**
@@ -61,6 +76,8 @@ class SatkerController extends Controller
      */
     public function destroy(Satker $satker)
     {
-        //
+        $satker->delete();
+
+        return redirect()->route('satker.index')->with('success', 'Satker has been deleted successfully!');
     }
 }

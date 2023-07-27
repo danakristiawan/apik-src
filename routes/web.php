@@ -22,3 +22,5 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('users', App\Http\Controllers\UsersController::class);
+Route::resource('satker', App\Http\Controllers\SatkerController::class);
+Route::resource('bku', App\Http\Controllers\BkuController::class);
