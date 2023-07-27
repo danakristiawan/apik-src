@@ -1,9 +1,9 @@
 @extends('layouts.app')
- 
+
 @section('content')
     <div class="container">
         @if (session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
+            <div class="alert alert-success">{{ session('success') }}</div>
         @endif
         <div class="card">
             <div class="card-header">Manage Satker</div>
@@ -13,7 +13,7 @@
         </div>
     </div>
 @endsection
- 
+
 @push('scripts')
-{{ $dataTable->scripts() }}
+    {{ $dataTable->scripts() }}
 @endpush

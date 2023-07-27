@@ -2,13 +2,16 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Bku extends Model
 {
+    use HasRoles;
+
     protected $table = 'bku';
     protected $fillable = [
-        'tanggal', 'bukti', 'uraian', 'debet', 'kredit', 'saldo'
+        'kdsatker', 'no_rekening', 'tanggal', 'bukti', 'uraian', 'debet', 'kredit', 'saldo'
     ];
 }

@@ -14,6 +14,8 @@ class BkuSeeder extends Seeder
     {
         \App\Models\Bku::create(
             [
+            'kdsatker' => '411792',
+            'no_rekening' => '002214211',
             'tanggal' => '27-07-2023',
             'bukti' => '121151',
             'uraian' => 'uang jaminan lelang',

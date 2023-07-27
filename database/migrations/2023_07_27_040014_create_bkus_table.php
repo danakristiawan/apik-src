@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('bku', function (Blueprint $table) {
             $table->id();
+            $table->string('kdsatker');
+            $table->string('no_rekening');
             $table->date('tanggal');
             $table->string('bukti');
             $table->string('uraian');
