@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +21,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/ajax', [App\Http\Controllers\AjaxController::class, 'index']);
 
 Route::resource('users', App\Http\Controllers\UsersController::class);
 Route::resource('satker', App\Http\Controllers\SatkerController::class);
