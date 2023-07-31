@@ -13,9 +13,24 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col">
-                <p>{{ $size }}</p>
-                {{-- <p>{{ $path }}</p> --}}
-                <p>{{ $lastModified }}</p>
+                <table class="table table-sm table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Code</th>
+                            <th>Detail</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($collection as $collect)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $collect->code }}</td>
+                                <td>{{ $collect->detail }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
