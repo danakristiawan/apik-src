@@ -11,38 +11,24 @@
 
 <body>
     <div class="container mt-5">
-        <div class="row mt-2">
-            <div class="col">
-                <a href="{{ route('sftp.index') }}" class="btn btn-sm btn-success">Kembali</a>
-            </div>
-        </div>
-        <div class="row mt-2">
+        <div class="row">
             <div class="col">
                 <table class="table table-sm table-bordered table-hover">
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>1</th>
-                            <th>2</th>
-                            <th>3</th>
-                            <th>4</th>
-                            <th>5</th>
-                            <th>6</th>
-                            <th>7</th>
-                            <th>8</th>
-                            <th>9</th>
-                            <th>10</th>
-                            <th>11</th>
-                            <th>12</th>
+                            <th>Acc</th>
+                            <th>Code</th>
+                            <th>Detail</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($cols as $col)
+                        @foreach ($collection as $collect)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                @foreach ($col as $item)
-                                    <td>{{ $item }}</td>
-                                @endforeach
+                                <td>{{ $collect->acc }}</td>
+                                <td>{{ $collect->code }}</td>
+                                <td>{{ $collect->detail }}</td>
                             </tr>
                         @endforeach
                     </tbody>

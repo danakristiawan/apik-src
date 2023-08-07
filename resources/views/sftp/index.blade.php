@@ -23,12 +23,15 @@
                     </thead>
                     <tbody>
                         @foreach ($files as $file)
-                            <tr>
-                                <td>{{ $loop->iteration }}</td>
-                                <td>{{ $file }}</td>
-                                <td><a href="{{ route('sftp.show', $file) }}" class="btn btn-sm btn-success">View</a>
-                                </td>
-                            </tr>
+                            @if (substr($file, 0, 1) !== 'S')
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $file }}</td>
+                                    <td><a href="{{ route('sftp.show', $file) }}"
+                                            class="btn btn-sm btn-success">View</a>
+                                    </td>
+                                </tr>
+                            @endif
                         @endforeach
                     </tbody>
                 </table>
