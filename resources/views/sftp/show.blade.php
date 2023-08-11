@@ -13,7 +13,7 @@
     <div class="container mt-5">
         <div class="row mt-2">
             <div class="col">
-                <a href="{{ route('sftp.index') }}" class="btn btn-sm btn-success">Kembali</a>
+                <a href="{{ route('bni.index') }}" class="btn btn-sm btn-success">Kembali</a>
             </div>
         </div>
         <div class="row mt-2">

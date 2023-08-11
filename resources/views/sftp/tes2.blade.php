@@ -11,7 +11,12 @@
 
 <body>
     <div class="container mt-5">
-        <div class="row">
+        <div class="row mt-2">
+            <div class="col">
+                <a href="{{ route('mandiri.index') }}" class="btn btn-sm btn-success">Kembali</a>
+            </div>
+        </div>
+        <div class="row mt-2">
             <div class="col">
                 <table class="table table-sm table-bordered table-hover">
                     <thead>
@@ -35,18 +40,9 @@
                         @foreach ($cols as $col)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $col[0] }}</td>
-                                <td>{{ $col[1] }}</td>
-                                <td>{{ $col[2] }}</td>
-                                <td>{{ $col[3] }}</td>
-                                <td>{{ $col[4] }}</td>
-                                <td>{{ $col[5] }}</td>
-                                <td>{{ $col[6] }}</td>
-                                <td>{{ $col[7] }}</td>
-                                <td>{{ $col[8] }}</td>
-                                <td>{{ $col[9] }}</td>
-                                <td>{{ $col[10] }}</td>
-                                <td>{{ $col[11] }}</td>
+                                @foreach ($col as $item)
+                                    <td>{{ $item }}</td>
+                                @endforeach
                             </tr>
                         @endforeach
                     </tbody>

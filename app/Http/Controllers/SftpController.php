@@ -13,14 +13,13 @@ class SftpController extends Controller
 {
     public function index()
     {
-        $directory = '/Report/Incoming';
-        $files = Storage::disk('sftp')->files();
+        $files = Storage::disk('sftp_bni')->files();
         return view('sftp.index', compact('files'));
     }
 
     public function show($file)
     {
-        $contents = Storage::disk('sftp')->get($file);
+        $contents = Storage::disk('sftp_bni')->get($file);
         $lines = explode("\n", $contents);
         $col1 = collect();
         $col2 = collect();
@@ -54,11 +53,17 @@ class SftpController extends Controller
 
     public function tes()
     {
-        $contents = File::get('storage/202307270617-DJKN-MT940_H1-0010541288.csv');
+        $files = Storage::disk('sftp_mandiri')->files();
+        return view('sftp.tes', compact('files'));
+    }
 
+    public function tes2($file)
+    {
+        $contents = Storage::disk('sftp_mandiri')->get($file);
         $lines = explode("\n", $contents);
         $col1 = collect();
         $col2 = collect();
+        $cols = collect();
         foreach ($lines as $line) {
             $report = explode(':', $line);
             if (isset($report[1]) && isset($report[2])) {
@@ -74,17 +79,17 @@ class SftpController extends Controller
                 }
             }
         }
-        $cols = collect();
+
+        
         $i = 0;
         foreach($col1 as $item) {
-            $object = new stdClass();
-            $object = $item.'|'.$col2[$i];
-            $object = explode('|', $object);
-            $cols->push($object);
-            $i++;
-        }
-
+                $object = new stdClass();
+                $object = $item.'|'.$col2[$i];
+                $object = explode('|', $object);
+                $cols->push($object);
+                $i++;
+            }
+            
         return view('sftp.tes2', compact('cols'));
-
     }
 }

@@ -10,26 +10,28 @@
 </head>
 
 <body>
-    <div class="container mt-5">
+    <div class="container mt-4">
         <div class="row">
             <div class="col">
                 <table class="table table-sm table-bordered table-hover">
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Acc</th>
-                            <th>Code</th>
+                            <th>Name</th>
                             <th>Detail</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($collection as $collect)
-                            <tr>
-                                <td>{{ $loop->iteration }}</td>
-                                <td>{{ $collect->acc }}</td>
-                                <td>{{ $collect->code }}</td>
-                                <td>{{ $collect->detail }}</td>
-                            </tr>
+                        @foreach ($files as $file)
+                            @if (substr($file, 0, 1) !== 'S')
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $file }}</td>
+                                    <td><a href="{{ route('mandiri.show', $file) }}"
+                                            class="btn btn-sm btn-success">View</a>
+                                    </td>
+                                </tr>
+                            @endif
                         @endforeach
                     </tbody>
                 </table>
