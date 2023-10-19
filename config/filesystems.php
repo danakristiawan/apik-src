@@ -56,13 +56,27 @@ return [
             'throw' => false,
         ],
 
-        'sftp' => [
+        'sftp_bni' => [
             'driver' =>'sftp',
-            'host' => env('SFTP_HOST'),
+            'host' => env('SFTP_HOST_BNI'),
             'port' => env('SFTP_PORT', 22),
-            'username' => env('SFTP_USERNAME'),
-            'password' => env('SFTP_PASSWORD'),
-            'root' => env('SFTP_ROOT'),
+            'username' => env('SFTP_USERNAME_BNI'),
+            'password' => env('SFTP_PASSWORD_BNI'),
+            'root' => env('SFTP_ROOT_BNI'),
+            'permPublic' => 0755,
+            'directoryPerm' => 0755,
+            'visibility' => 'public',
+            'timeout' => 30,
+
+        ],
+
+        'sftp_mandiri' => [
+            'driver' =>'sftp',
+            'host' => env('SFTP_HOST_MANDIRI'),
+            'port' => env('SFTP_PORT', 22),
+            'username' => env('SFTP_USERNAME_MANDIRI'),
+            'password' => env('SFTP_PASSWORD_MANDIRI'),
+            'root' => env('SFTP_ROOT_MANDIRI'),
             'permPublic' => 0755,
             'directoryPerm' => 0755,
             'visibility' => 'public',

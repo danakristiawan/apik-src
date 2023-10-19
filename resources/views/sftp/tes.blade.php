@@ -27,7 +27,8 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $file }}</td>
-                                    <td><a href="{{ route('bni.show', $file) }}" class="btn btn-sm btn-success">View</a>
+                                    <td><a href="{{ route('mandiri.show', $file) }}"
+                                            class="btn btn-sm btn-success">View</a>
                                     </td>
                                 </tr>
                             @endif
