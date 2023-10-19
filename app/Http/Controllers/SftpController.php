@@ -20,7 +20,6 @@ class SftpController extends Controller
     public function show($file)
     {
         $size =Storage::disk('sftp')->size($file);
-        $path =Storage::disk('sftp')->path($file);
         $lastModified =Storage::disk('sftp')->lastModified($file);
         // $get =Storage::disk('sftp')->get($file);
 

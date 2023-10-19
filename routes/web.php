@@ -29,3 +29,4 @@ Route::resource('users', App\Http\Controllers\UsersController::class);
 Route::resource('satker', App\Http\Controllers\SatkerController::class);
 Route::resource('bku', App\Http\Controllers\BkuController::class);
 Route::resource('sftp', App\Http\Controllers\SftpController::class);
+Route::resource('tes', App\Http\Controllers\TesController::class);
