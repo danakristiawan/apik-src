@@ -11,5 +11,5 @@ class RekeningKoran extends Model
 
     protected $table = 'data_rekening_koran';
 
-    protected $fillable = ['nomor', 'tanggal', 'tipe', 'nominal', 'uraian'];
+    protected $fillable = ['bank','nomor', 'tanggal', 'tipe', 'nominal', 'uraian', 'status'];
 }

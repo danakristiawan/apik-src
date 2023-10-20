@@ -14,7 +14,7 @@ class RekeningKoranController extends Controller
     public function index()
     {
         $rekening_koran = RekeningKoran::all();
-        return dd($rekening_koran);
+        return view('sftp.rekening_koran', compact('rekening_koran'));
     }
 
     /**

@@ -13,11 +13,13 @@ return new class extends Migration
     {
         Schema::create('data_rekening_koran', function (Blueprint $table) {
             $table->id();
+            $table->string('bank');
             $table->string('nomor');
             $table->string('tanggal');
             $table->string('tipe');
             $table->string('nominal');
             $table->string('uraian');
+            $table->string('status');
             $table->timestamps();
         });
     }
