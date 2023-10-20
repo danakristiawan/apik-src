@@ -94,7 +94,7 @@ class SftpController extends Controller
         $i = 0;
         foreach($col1 as $item) {
             $object = new stdClass();
-            $object = $col0[0].'//'.substr($item, 0, 6).'//'.substr($item, 6, 2).'//'.substr($item, 8, strlen($item)-14).'//'.$col2[$i];
+            $object = $col0[0].'//'.substr($item, 0, 6).'//'.substr($item, 6, 1).'//'.substr($item, 8, strlen($item)-14).'//'.$col2[$i];
             $object = explode('//', $object);
             $cols->push($object);
             $i++;
